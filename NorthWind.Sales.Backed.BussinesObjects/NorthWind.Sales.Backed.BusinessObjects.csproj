@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthWind.Sales.Entities\NorthWind.Sales.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="Aggregates\" />
+    <Folder Include="ValueObjects\" />
+    <Folder Include="POCOEntities\" />
+  </ItemGroup>
+
+</Project>
