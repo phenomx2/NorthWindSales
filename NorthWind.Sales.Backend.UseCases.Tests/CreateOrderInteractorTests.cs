@@ -15,23 +15,16 @@ public class CreateOrderInteractorTests
         //Arrange
         var stubRepository = new RepositoryFake();
         var mockPresenter = new PresenterFake();
-        var order = new CreateOrderDto()
-        {
-            CustomerId = "CUSTOMER_ID",
-            ShipAddress = "address",
-            ShipCity = "city",
-            ShipCountry = "Mexico",
-            ShipPostalCode = "08000",
-            OrderDetails = new List<CreateOrderDetailsDto>()
-            {
-                new CreateOrderDetailsDto()
-                {
-                    ProductId = 1,
-                    Quantity = 1,
-                    UnitPrice = 10
-                }
-            }
+        var createOrderDetailsDto = new List<CreateOrderDetailsDto>
+        { 
+            new(1,1,20)
         };
+        var order = new CreateOrderDto("CUSTOMER_ID",
+            "address",
+            "city",
+            "Mexico",
+            "08000",
+            createOrderDetailsDto);
         var createOrderInteractor = new CreateOrderInteractor(mockPresenter, stubRepository);
         //Act
         await createOrderInteractor.Handle(order);

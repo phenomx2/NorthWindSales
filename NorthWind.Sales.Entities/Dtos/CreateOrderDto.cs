@@ -2,10 +2,20 @@
 
 public class CreateOrderDto
 {
-    public string CustomerId { get; set; }
+    public string CustomerId { get; }
     public string ShipAddress { get; set; }
-    public string ShipCity { get; set; }
-    public string ShipCountry { get; set; }
-    public string ShipPostalCode { get; set; }
-    public IList<CreateOrderDetailsDto> OrderDetails { get; set; }
+    public string ShipCity { get; }
+    public string ShipCountry { get; }
+    public string ShipPostalCode { get; }
+    public IList<CreateOrderDetailsDto> OrderDetails { get; }
+
+    public CreateOrderDto(string customerId, string shipAddress, string shipCity, string shipCountry, string shipPostalCode, IList<CreateOrderDetailsDto> orderDetails)
+    {
+        CustomerId = customerId;
+        ShipAddress = shipAddress;
+        ShipCity = shipCity;
+        ShipCountry = shipCountry;
+        ShipPostalCode = shipPostalCode;
+        OrderDetails = orderDetails;
+    }
 }

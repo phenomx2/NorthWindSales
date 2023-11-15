@@ -2,7 +2,14 @@
 
 public class CreateOrderDetailsDto
 {
-    public int ProductId { get; set; }
-    public decimal UnitPrice { get; set; }
-    public short Quantity { get; set; }
+    public CreateOrderDetailsDto(int productId, decimal unitPrice, short quantity)
+    {
+        ProductId = productId;
+        UnitPrice = unitPrice;
+        Quantity = quantity;
+    }
+
+    public int ProductId { get; }
+    public decimal UnitPrice { get; }
+    public short Quantity { get; }
 }

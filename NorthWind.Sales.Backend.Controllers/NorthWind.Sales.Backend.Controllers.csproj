@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthWind.Sales.Backed.BussinesObjects\NorthWind.Sales.Backed.BusinessObjects.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+	</ItemGroup>
+
+</Project>
