@@ -59,5 +59,149 @@ namespace NorthWind.Sales.Entities.Validators.CreateOrder {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe proporcionar el identificador del cliente.
+        /// </summary>
+        internal static string CustomerIdRequired {
+            get {
+                return ResourceManager.GetString("CustomerIdRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitud del identificador del cliente debe ser de 5.
+        /// </summary>
+        internal static string CustumerIdRequiredLength {
+            get {
+                return ResourceManager.GetString("CustumerIdRequiredLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe especificar al menos un producto de la orden.
+        /// </summary>
+        internal static string OrderDetailsNotEmpty {
+            get {
+                return ResourceManager.GetString("OrderDetailsNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe especificar los productos de la orden.
+        /// </summary>
+        internal static string OrderDetailsRequired {
+            get {
+                return ResourceManager.GetString("OrderDetailsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depe especificar el identificador del producto..
+        /// </summary>
+        internal static string ProductIdGreatherThanZero {
+            get {
+                return ResourceManager.GetString("ProductIdGreatherThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La cantidad debe ser mayor a cero..
+        /// </summary>
+        internal static string QuantityGreatherThanZero {
+            get {
+                return ResourceManager.GetString("QuantityGreatherThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitud maxima de la direccion es de 60 caracteres..
+        /// </summary>
+        internal static string ShipAddressMaximumLength {
+            get {
+                return ResourceManager.GetString("ShipAddressMaximumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe proporcionar la dirección de envio..
+        /// </summary>
+        internal static string ShipAddressRequire {
+            get {
+                return ResourceManager.GetString("ShipAddressRequire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitud maxima de la ciudad es de 15 caracteres..
+        /// </summary>
+        internal static string ShipCityMaximumLength {
+            get {
+                return ResourceManager.GetString("ShipCityMaximumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe especificar al menos tres caracteres del nombre de la ciudad..
+        /// </summary>
+        internal static string ShipCityMinimumLength {
+            get {
+                return ResourceManager.GetString("ShipCityMinimumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe proporcionar la ciudad de envío..
+        /// </summary>
+        internal static string ShipCityRequired {
+            get {
+                return ResourceManager.GetString("ShipCityRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitud maxima del pais es de 15 caracteres.
+        /// </summary>
+        internal static string ShipCountryMaximumLength {
+            get {
+                return ResourceManager.GetString("ShipCountryMaximumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe especificar al menos 3 caracteres del nombre del pais..
+        /// </summary>
+        internal static string ShipCountryMinimumLength {
+            get {
+                return ResourceManager.GetString("ShipCountryMinimumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe proporcionar el pais de envio.
+        /// </summary>
+        internal static string ShipCountryRequired {
+            get {
+                return ResourceManager.GetString("ShipCountryRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitud maxima del codigo postal es de 10 caracteres.
+        /// </summary>
+        internal static string ShipPostalCodeMaximumLength {
+            get {
+                return ResourceManager.GetString("ShipPostalCodeMaximumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe especificar el precio del producto..
+        /// </summary>
+        internal static string UnitPriceGreatherThanZero {
+            get {
+                return ResourceManager.GetString("UnitPriceGreatherThanZero", resourceCulture);
+            }
+        }
     }
 }

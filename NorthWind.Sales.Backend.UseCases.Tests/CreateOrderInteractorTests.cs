@@ -25,7 +25,7 @@ public class CreateOrderInteractorTests
             "Mexico",
             "08000",
             createOrderDetailsDto);
-        var createOrderInteractor = new CreateOrderInteractor(mockPresenter, stubRepository);
+        var createOrderInteractor = new CreateOrderInteractor(mockPresenter, stubRepository, null!);
         //Act
         await createOrderInteractor.Handle(order);
         //Test

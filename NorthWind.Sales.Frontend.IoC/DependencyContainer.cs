@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NorthWind.Sales.Entities.Validators;
 using NorthWind.Sales.Frontend.Views;
 using NorthWind.Sales.Frontend.WebApiGateways;
 
@@ -10,7 +11,8 @@ public static class DependencyContainer
         Action<HttpClient> configureHttpClient)
     {
         services.AddWebApiGateways(configureHttpClient)
-            .AddViewServices();
+            .AddViewServices()
+            .AddValidators();
         return services;
     }
 }

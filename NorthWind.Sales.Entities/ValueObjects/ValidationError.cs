@@ -5,9 +5,9 @@ public class ValidationError
     public string Message { get; set; }
     public string PropertyName { get; set; }
 
-    public ValidationError(string message, string propertyName)
+    public ValidationError(string propertyName, string message )
     {
-        Message = message;
         PropertyName = propertyName;
+        Message = message;
     }
 }
