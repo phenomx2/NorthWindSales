@@ -1,4 +1,6 @@
-﻿using NorthWind.Sales.Backed.BusinessObjects.Aggregates;
+﻿using Microsoft.EntityFrameworkCore;
+using NorthWind.Sales.Backed.BusinessObjects.Aggregates;
+using NorthWind.Sales.Backed.BusinessObjects.Exceptions;
 using NorthWind.Sales.Backed.BusinessObjects.Interfaces.Repositories;
 using NorthWind.Sales.Backend.EFCore.DataContexts;
 
@@ -16,7 +18,18 @@ internal class CommandsRepository : ICommandsRepository
 
     public async ValueTask SaveChanges()
     {
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new UnitOfWorkException(ex, ex.Entries.Select(e => e.Entity.GetType().Name));
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
     }
 
     public async ValueTask CreateOrder(OrderAggregate order)

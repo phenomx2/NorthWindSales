@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
@@ -13,8 +13,13 @@
   <ItemGroup>
     <Folder Include="Enums\" />
     <Folder Include="Aggregates\" />
+    <Folder Include="Interfaces\Common\" />
     <Folder Include="ValueObjects\" />
     <Folder Include="POCOEntities\" />
   </ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
 </Project>

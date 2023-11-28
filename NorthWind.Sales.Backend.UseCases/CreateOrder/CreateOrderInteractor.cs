@@ -1,4 +1,5 @@
 ﻿using NorthWind.Sales.Backed.BusinessObjects.Aggregates;
+using NorthWind.Sales.Backed.BusinessObjects.Exceptions;
 using NorthWind.Sales.Backed.BusinessObjects.Interfaces.CreateOrder;
 using NorthWind.Sales.Backed.BusinessObjects.Interfaces.Repositories;
 using NorthWind.Sales.Entities.Dtos;
@@ -32,8 +33,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
             isValid = await enumerator.Current.Validate(order);
             if (!isValid)
             {
-                var errors = string.Join(" ", enumerator.Current.Errors.Select(e => $"{e.PropertyName}: {e.Message}"));
-                throw new Exception(errors);
+                throw new ValidationException(enumerator.Current.Errors);
             }
         }
         
