@@ -13,10 +13,10 @@ public static class DependencyContainer
         Action<DbOptions> configureDbOptions)
     {
         services
+            .AddValidators()
             .AddUseCasesServices()
             .AddRepositories(configureDbOptions)
-            .AddPresenters()
-            .AddValidators();
+            .AddPresenters();
         return services;
     }
 }

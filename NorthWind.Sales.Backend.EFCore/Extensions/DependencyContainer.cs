@@ -14,6 +14,7 @@ public static class DependencyContainer
         //por default se registra como scoped 
         services.AddDbContext<NorthWindSalesContext>();
         services.AddScoped<ICommandsRepository, CommandsRepository>();
+        services.AddScoped<IQueriesRepository, QueriesRepository>();
         return services;
     }
 }

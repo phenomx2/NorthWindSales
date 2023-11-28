@@ -1,4 +1,5 @@
 ﻿using NorthWind.Sales.Entities.Dtos;
+using NorthWind.Sales.Entities.Interfaces.Common;
 using NorthWind.Sales.Frontend.BusinessObjects.Interfaces;
 using NorthWind.Sales.Frontend.Views.Resources;
 
@@ -8,9 +9,10 @@ public class CreateOrderViewModel
 {
     private readonly ICreateOrderGateway _gateway;
 
-    public CreateOrderViewModel(ICreateOrderGateway gateway)
+    public CreateOrderViewModel(ICreateOrderGateway gateway, IModelValidator<CreateOrderViewModel> validator)
     {
         _gateway = gateway;
+        Validator = validator;
     }
 
     public string CustomerId { get; set; }
@@ -21,6 +23,8 @@ public class CreateOrderViewModel
     public IList<CreateOrderDetailViewModel> OrderDetails { get; set; } = new List<CreateOrderDetailViewModel>();
 
     public string InformationMessage { get; private set; }
+
+    public IModelValidator<CreateOrderViewModel> Validator { get; set; }
 
     public void AddNewOrderDetailItem()
     {

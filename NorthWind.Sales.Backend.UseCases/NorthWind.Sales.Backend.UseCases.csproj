@@ -23,4 +23,19 @@
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\CreateOrderMessages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CreateOrderMessages.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\CreateOrderMessages.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CreateOrderMessages.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
 </Project>

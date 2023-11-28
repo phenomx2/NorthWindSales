@@ -11,5 +11,9 @@ internal class OrderDetailConfiguration : IEntityTypeConfiguration<Entities.Orde
         builder.HasKey(e => new { e.OrderId, e.ProductId });
         builder.Property(e => e.UnitPrice)
             .HasPrecision(8, 2);
+
+        builder.HasOne<Product>()
+            .WithMany()
+            .HasForeignKey(d => d.ProductId);
     }
 }

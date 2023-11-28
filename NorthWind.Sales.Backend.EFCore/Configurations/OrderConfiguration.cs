@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NorthWind.Sales.Backed.BusinessObjects.POCOEntities;
+using NorthWind.Sales.Backend.EFCore.Entities;
 
 namespace NorthWind.Sales.Backend.EFCore.Configurations;
 
@@ -26,5 +27,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.Property(e => e.ShipPostalCode)
             .HasMaxLength(10);
+
+        builder.HasOne<Customer>()
+            .WithMany()
+            .HasForeignKey(o => o.CustomerId);
     }
 }
