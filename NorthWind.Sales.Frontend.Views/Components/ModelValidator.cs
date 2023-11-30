@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using NorthWind.Sales.Entities.Interfaces.Common;
+using NorthWind.Sales.Entities.ValueObjects;
 
 namespace NorthWind.Sales.Frontend.Views.Components;
 
@@ -56,15 +57,16 @@ public class ModelValidator<TModel> : ComponentBase
 
     private async void ValidationRequested(object sender, ValidationRequestedEventArgs args)
     {
-        _validationMessageStore.Clear();
+        
         bool isValid = await Validator.Validate((TModel)EditContext.Model);
-        if (!isValid)
+        if (isValid)
         {
-            foreach (var error in Validator.Errors)
-            {
-                var fieldIdIdentifier = GetFieldIdentifier(EditContext.Model, error.PropertyName);
-                _validationMessageStore.Add(fieldIdIdentifier, error.Message);
-            }
+            _validationMessageStore.Clear();
+            EditContext.NotifyValidationStateChanged();
+        }
+        else
+        {
+            AddErrors(Validator.Errors);
         }
         EditContext.NotifyValidationStateChanged();
     }
@@ -99,5 +101,16 @@ public class ModelValidator<TModel> : ComponentBase
             EditContext.OnValidationRequested += ValidationRequested;
             EditContext.OnFieldChanged += FieldChanged;
         }
+    }
+
+    public void AddErrors(IEnumerable<ValidationError> errors)
+    {
+        _validationMessageStore.Clear();
+        foreach (var error in errors)
+        {
+            var fieldIdentifier = GetFieldIdentifier(EditContext.Model,error.PropertyName);
+            _validationMessageStore.Add(fieldIdentifier, error.Message);
+        }
+        EditContext.NotifyValidationStateChanged();
     }
 }

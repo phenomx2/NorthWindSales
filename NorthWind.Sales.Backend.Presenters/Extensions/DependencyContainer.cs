@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using NorthWind.Sales.Backed.BusinessObjects.Exceptions;
 using NorthWind.Sales.Backed.BusinessObjects.Interfaces.Common;
 using NorthWind.Sales.Backed.BusinessObjects.Interfaces.CreateOrder;
@@ -17,7 +18,8 @@ public static class DependencyContainer
         //services.AddSingleton<object, UnitOfWorkExceptionHandler>();
         services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
 
-        services.AddSingleton<ExceptionHandlerOrchestrator>();
+        services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
+        services.AddExceptionHandler<UnhandledExceptionHandler>();
         return services;
     }
 }
