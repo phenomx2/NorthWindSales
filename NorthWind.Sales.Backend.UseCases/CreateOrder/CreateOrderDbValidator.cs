@@ -50,14 +50,20 @@ public class CreateOrderDbValidator : IModelValidator<CreateOrderDto>
         {
             if (!item.InStock.HasValue)
             {
-                _errors.Add(new ValidationError(nameof(item.ProductId), 
+                var orderDetail = model.OrderDetails.First(x => x.ProductId == item.ProductId);
+                var index = model.OrderDetails.ToList().IndexOf(orderDetail);
+                var propertyName = $"{nameof(model.OrderDetails)}[{index}].{nameof(orderDetail.ProductId)}";
+                _errors.Add(new ValidationError(propertyName, 
                     string.Format(CreateOrderMessages.ProductIdNotFoundErrorTemplate, item.ProductId)));
             }
             else
             {
                 if (item.InStock < item.Required)
                 {
-                    _errors.Add(new ValidationError(nameof(item.ProductId),
+                    var orderDetail = model.OrderDetails.Last(x => x.ProductId == item.ProductId);
+                    var index = model.OrderDetails.ToList().IndexOf(orderDetail);
+                    var propertyName = $"{nameof(model.OrderDetails)}[{index}].{nameof(orderDetail.ProductId)}";
+                    _errors.Add(new ValidationError(propertyName,
                         string.Format(CreateOrderMessages.UnitInStockLessThanQuantityErrorTemplate, 
                             item.Required, item.InStock, item.ProductId)));
                 }
